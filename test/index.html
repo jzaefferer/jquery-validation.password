@@ -1,0 +1,33 @@
+<html id="html">
+<head>
+	<title>jQuery Validation Plugin Password Extension Test Suite</title>
+	<link rel="Stylesheet" media="screen" href="qunit/testsuite.css" />
+	<script type="text/javascript" src="../../validate/lib/jquery.js"></script>
+	<script type="text/javascript" src="../lib/ui.core.js"></script>
+	<script type="text/javascript" src="../lib/ui.progressbar.js"></script>
+	<script type="text/javascript" src="qunit/testrunner.js"></script>
+	<script type="text/javascript" src="../../validate/jquery.validate.js"></script>
+	<script type="text/javascript" src="../jquery.validate.password.js"></script>
+	<script type="text/javascript" src="rating.js"></script>
+	<script type="text/javascript" src="strength-meter.js"></script>
+	
+	<style type="text/css">
+		.xerror, .error { display: none }
+	</style>
+</head>
+<body id="body">
+	<h1><a href="http://bassistance.de/jquery-plugins/jquery-plugin-validation/">jQuery Validation Plugin Password Extension</a> Test Suite</h1>
+	<h2 id="banner"></h2>
+	<h2 id="userAgent"></h2>
+	
+	<div id="main" style="display:none;">
+		<form id="form">
+			<input id="username" name="username" value="Peter" />
+			<input class="required password" name="password" id="password" />
+		</form>
+	</div>
+	
+	<ol id="tests"></ol>
+	
+</body>
+</html>
