@@ -5,35 +5,11 @@
 <title>jQuery Validation Plugin Password Extension demo</title>
 
 <link rel="stylesheet" type="text/css" media="screen" href="milk.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="../jquery.validate.password.css" />
 
 <script type="text/javascript" src="../../validate/lib/jquery.js"></script>
 <script type="text/javascript" src="../../validate/jquery.validate.js"></script>
 <script type="text/javascript" src="../jquery.validate.password.js"></script>
-
-<style type="text/css">
-.password-meter {
-	position:relative;
-	top: 20px;
-	background: #e0e0e0;
-	width: 180px;
-}
-.password-meter-bar {
-	height: 4px;
-}
-.password-meter-weak {
-	background: red;
-	width: 20px;
-}
-.password-meter-good {
-	background: blue;
-	width: 140px;
-}
-.password-meter-strong {
-	background: green;
-	width: 180px;
-}
-
-</style>
 
 <script id="demo" type="text/javascript">
 $(document).ready(function() {
@@ -45,8 +21,7 @@ $(document).ready(function() {
 				minlength: 2
 			},
 			password: {
-				required: true,
-				password: true
+				password: "#username"
 			},
 			password_confirm: {
 				required: true,
@@ -58,10 +33,6 @@ $(document).ready(function() {
 				required: "Enter a username",
 				minlength: jQuery.format("Enter at least {0} characters")
 			},
-			password: {
-				required: "Provide a password",
-				rangelength: jQuery.format("Enter at least {0} characters")
-			},
 			password_confirm: {
 				required: "Repeat your password",
 				minlength: jQuery.format("Enter at least {0} characters"),
@@ -70,7 +41,7 @@ $(document).ready(function() {
 		},
 		// the errorPlacement has to take the table layout into account
 		errorPlacement: function(error, element) {
-			error.appendTo( element.parent().next() );
+			error.prependTo( element.parent().next() );
 		},
 		// specifying a submitHandler prevents the default submit, good for the demo
 		submitHandler: function() {
@@ -129,7 +100,10 @@ $(document).ready(function() {
 	  			<td class="field"><input id="password" name="password" type="password" maxlength="50" value="" /></td>
 	  			<td class="status">
 	  				<div class="password-meter">
-	  					<div class="password-meter-bar"></div>
+	  					<div class="password-meter-message">&nbsp;</div>
+	  					<div class="password-meter-bg">
+		  					<div class="password-meter-bar"></div>
+	  					</div>
 	  				</div>
 				</td>
 	  		  </tr>

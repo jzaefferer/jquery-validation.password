@@ -5,11 +5,7 @@ var messages = $.validator.passwordRating.messages;
 
 function check(messageKey) {
 	input.valid();
-	if (!messageKey) {
-		equals( input.next(":visible").text(), $.validator.messages.required );
-	} else {
-		equals( input.next(":visible").text(), messages[messageKey] );
-	}
+	equals( $("#form .password-meter-message").text(), messages[messageKey] );
 }
 
 test("basic password strength meter", function() {
@@ -17,13 +13,10 @@ test("basic password strength meter", function() {
 	$("#form").validate();
 	
 	input = $("#password");
-	check();
+	check("too-short");
 	
 	input.val("a");
 	check("too-short");
-	
-	input.val("");
-	check();
 	
 	input.val("abc123@po");
 	check("strong");
@@ -36,13 +29,12 @@ test("check similar username", function() {
 	$("#form").validate({
 		rules: {
 			password: {
-				required: true,
 				password: "#username"
 			}
 		}
 	});
 	
-	check();
+	check("too-short");
 	
 	input.val("peterpeter");
 	check("similar-to-username");

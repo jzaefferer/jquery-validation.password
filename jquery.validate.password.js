@@ -40,9 +40,10 @@
 	}
 	
 	$.validator.passwordRating.messages = {
+		"similar-to-username": "Too similar to username",
 		"too-short": "Too short",
-		"very-weak": "Weak",
-		"weak": "Fair",
+		"very-weak": "Very weak",
+		"weak": "Weak",
 		"good": "Good",
 		"strong": "Strong"
 	}
@@ -55,14 +56,19 @@
 			
 		var rating = $.validator.passwordRating(password, username.val());
 		// update message for this field
-		$.extend(this.settings.messages[element.name] || (this.settings.messages[element.name] = {}), {
-			password: $.validator.passwordRating.messages[rating.messageKey]
-		})
-		$(".password-meter-bar").removeClass().addClass("password-meter-bar").addClass("password-meter-" + rating.messageKey);
+		
+		var meter = $(".password-meter", element.form);
+		
+		meter.find(".password-meter-bar").removeClass().addClass("password-meter-bar").addClass("password-meter-" + rating.messageKey);
+		meter.find(".password-meter-message")
+		.removeClass()
+		.addClass("password-meter-message")
+		.addClass("password-meter-message-" + rating.messageKey)
+		.text($.validator.passwordRating.messages[rating.messageKey]);
 		// display process bar instead of error message
 		
 		return rating.rate > 2;
-	}, "");
+	}, "&nbsp;");
 	// manually add class rule, to make username param optional
 	$.validator.classRuleSettings.password = { password: true };
 	

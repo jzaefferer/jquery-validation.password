@@ -3,8 +3,6 @@
 	<title>jQuery Validation Plugin Password Extension Test Suite</title>
 	<link rel="Stylesheet" media="screen" href="qunit/testsuite.css" />
 	<script type="text/javascript" src="../../validate/lib/jquery.js"></script>
-	<script type="text/javascript" src="../lib/ui.core.js"></script>
-	<script type="text/javascript" src="../lib/ui.progressbar.js"></script>
 	<script type="text/javascript" src="qunit/testrunner.js"></script>
 	<script type="text/javascript" src="../../validate/jquery.validate.js"></script>
 	<script type="text/javascript" src="../jquery.validate.password.js"></script>
@@ -23,7 +21,13 @@
 	<div id="main" style="display:none;">
 		<form id="form">
 			<input id="username" name="username" value="Peter" />
-			<input class="required password" name="password" id="password" />
+			<input class="password" name="password" id="password" />
+			<div class="password-meter">
+				<div class="password-meter-message">&nbsp;</div>
+				<div class="password-meter-bg">
+					<div class="password-meter-bar"></div>
+				</div>
+			</div>
 		</form>
 	</div>
 	
