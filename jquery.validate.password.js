@@ -1,3 +1,18 @@
+/*
+ * jQuery validate.password plug-in 1.0
+ *
+ * http://bassistance.de/jquery-plugins/jquery-plugin-validate.password/
+ * 
+ * Depends on validation plugin 1.5+
+ *
+ * Copyright (c) 2009 Jörn Zaefferer
+ *
+ * $Id$
+ *
+ * Dual licensed under the MIT and GPL licenses:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *   http://www.gnu.org/licenses/gpl.html
+ */
 (function($) {
 	
 	var LOWER = /[a-z]/,
